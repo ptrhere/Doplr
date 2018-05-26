@@ -80,18 +80,17 @@ after_script:
 - echo $TRAVIS_COMMIT_RANGE
 - echo $TRAVIS_COMMIT_LOG
 before_deploy:
-  # Set up git user name and tag this commit
-  - git config --local user.name "TheBr4in"
-  - git config --local user.email "brain@doplr.com"
-  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+- git config --local user.name "TheBr4in"
+- git config --local user.email "brain@doplr.com"
+- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   provider: releases
-  api_key:
+  api_key: 
   secure: grrJy5MIzq57HghtceV6sD/EJrI9n3wErGAWMdC8/z4lxxjNtpG00b9tnTt6An8WXLMlTiMo7qCTem4mc/rAGBzDOMcyAAdwZ4JbP4YUdR61xIzoX25j2VSWvGzYxoQQfWAWR1T8Fq4xLUW1XjTqY4fJlyVtOnCclPc00tHsqt4jBgCXMYV+QfcpQRBo8R/WxJbp/2VSD+nQQ56+R4kMA3ecvaVfVCcGm8UHLkR0+qgfaMvg+9x/nbLQYuCUJ2KvhiYZeKja4DruHGIGfKHCCS2R/LQW5kd5r+IyjtGFx4WNIBmYnbwF8HzWvexqERRm2a6amq/5ok5CtiOlTWrhE6w6s23sF4NjARG4BF05GEcUdoLXpFSyOfKapn3KkDXocec/9KYniSvHiolkJe0YNSksVPzvp/BJFXcrXt8WNBkJ+AA8/ieF2oZS8IvC3PA+N0M22oW/bj2kIARzMNlwE70vYA5gg9dpBovp8sinzRf7EDQrT5HsijOwnssY/TZkBiQbB9jmo/3BfAaueRzWv7O3suR8xKOrp8YxDJqslEG0JqDLqOV2DT+WHBIZ3pXWUXmUeGZRP4cnYQOOelpOmtFDRbs9lQ6yWf0BA5Mik5B193tyujSliIU0IKWu0+FZWrSIuseKiGZdKji9wIgPRZSGsvmd+pbn2d/znm1Yt2Y=
-  file: /home/travis/build/DoplrCoin/Doplr/out/false/2.2-i686-w64-mingw32/bin/pivxd.exe
+  file: "/home/travis/build/DoplrCoin/Doplr/out/false/2.2-i686-w64-mingw32/bin/pivxd.exe"
   skip_cleanup: true
   on:
     repo: DoplrCoin/Doplr
 notifications:
   slack:
-    secure: xufItLN+j2cctbdRxuwQAzwuaPyZ2hBgpmuDleoqCCo0OAu3AqYFBmwg8daE4/9LPStO0qtPUYlgzmRMNbmU/4XE+lAVpK8XNiedbaWd5oDBs3TZSSuvEasIGaXWP8+ydYdPqi4CU/M2V3DpPv3V7Yo+phMMFcCl2zRGjHcdHHPiBY4UUEHN1iWir1t1xAKHx2KFqZf5E0DmEI4i4tFnWuLMIS6nt2nrV5ET89drc2YY6+DhCQdvIDF77KEU9UPviGSzJZ+KEwCj33jTZvAQysBNZiMNQwsUOL8YFUGo5KjrzdPC/DFnYmT6egni2Cy3PsYrBYUwMxv5kRPgx943ZtwiMsGWERIPNc6yZDKrHHwk612zVRpixnRRB2/oHxMrR3+x4PYKlWXRUuH5vhWfwlkxSF2ZS06gFKCgxib7o71UcIi8kIjBbiBX6OaPSU/zRwL5utAnerj2pn1i1J781eiC2fyEAFNqTO5lOVECFCLGPDuanZ5SsP4FL4CSxRW5xuDZYW5VZiJJ776nBdFrqIGA9EyzEs1+95aaRxQGhMULVjr+4XrYMdcgL1TskrugWycT3R/mi9b1Y3ITb4odkjpnx3yeYCldj/aSxSLzxvzfa6WXTJwQejTyd9jZdmaHvBEU7G0eV4tVW55ENPkxDDgjP8uE3SvVnYyI33C5ALI=
+    secure: rfqVxE0zYI5JYDBJpyMhkVuSXLelzJKxcZsYFS+uQUsu1mNO7QDF2TzTsMqyJABDvd7cbzp00hAFyczqSlIweGGdN/6UqDYofhwimSj04xa/2ZAykovb46CugSVk3w+nNwa3Cr5xiBWMxbfTsuL1oiwtq2XpAdvbp3o+rtjoNyoOvN43WeuDuca9T1QmY5aI4RFWz199vW55uu2ba5O5JG5AgScqB+21YEpMLaJ54sbeIEShdgqKeOpv2QTlprzTkLBwXnrVwV6C8ujgFvb32y7IkqXNHYiRhghG7uBcNMPT1JquB2tBJpjuEU89IjSg6tNNVeyqvcD4dvBCixiq5IOl2M7Q/PLyEd6VCKldcYFp0GMBT0sQvEBgrxpnN7V8ygOHDF0dchnHr7Lrl7TvoKIO9omf7SjQdSgZRvn8WwzAEoBApnoVeglYwhtRQAPRfeg3C/4ME0zvJBiJYajdU3dv9Sg6t4GAyll4y4yII6if7NT21MzGA2/T7/RceyuhuTSr9vOTvd4g3jMFxJvN2JUibEkpngylho3QN+//+CSoTh1vlVyauZ4suHqYOS7Tzov2PxcBEPfoz27M8JkbZuplUD/BY3BymzFDMv3qzqIfZsvIchm9Xcfinj6ImqQ3JqDn1cu3qRXhJm2b8GZcsgzXCPIoJjs/z87mdcVab9o=
