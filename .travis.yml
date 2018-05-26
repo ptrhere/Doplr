@@ -85,7 +85,6 @@ before_deploy:
 - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
   provider: releases
-  api_key: 
   secure: grrJy5MIzq57HghtceV6sD/EJrI9n3wErGAWMdC8/z4lxxjNtpG00b9tnTt6An8WXLMlTiMo7qCTem4mc/rAGBzDOMcyAAdwZ4JbP4YUdR61xIzoX25j2VSWvGzYxoQQfWAWR1T8Fq4xLUW1XjTqY4fJlyVtOnCclPc00tHsqt4jBgCXMYV+QfcpQRBo8R/WxJbp/2VSD+nQQ56+R4kMA3ecvaVfVCcGm8UHLkR0+qgfaMvg+9x/nbLQYuCUJ2KvhiYZeKja4DruHGIGfKHCCS2R/LQW5kd5r+IyjtGFx4WNIBmYnbwF8HzWvexqERRm2a6amq/5ok5CtiOlTWrhE6w6s23sF4NjARG4BF05GEcUdoLXpFSyOfKapn3KkDXocec/9KYniSvHiolkJe0YNSksVPzvp/BJFXcrXt8WNBkJ+AA8/ieF2oZS8IvC3PA+N0M22oW/bj2kIARzMNlwE70vYA5gg9dpBovp8sinzRf7EDQrT5HsijOwnssY/TZkBiQbB9jmo/3BfAaueRzWv7O3suR8xKOrp8YxDJqslEG0JqDLqOV2DT+WHBIZ3pXWUXmUeGZRP4cnYQOOelpOmtFDRbs9lQ6yWf0BA5Mik5B193tyujSliIU0IKWu0+FZWrSIuseKiGZdKji9wIgPRZSGsvmd+pbn2d/znm1Yt2Y=
   file: "/home/travis/build/DoplrCoin/Doplr/out/false/2.2-i686-w64-mingw32/bin/pivxd.exe"
   skip_cleanup: true
