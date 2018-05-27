@@ -39,6 +39,10 @@ env:
 before_install:
 - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" |
   sed "s|::|:|g")
+- sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+- sudo apt-get update -qq
+- sudo apt-get install qtbase5-dev qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev
+- sudo apt-get install qt5-default qttools5-dev-tools
 install:
 - if [ "$PYZMQ" = "true" ]; then pip install pyzmq --user ; fi
 - if [ -n "$DPKG_ADD_ARCH" ]; then sudo dpkg --add-architecture "$DPKG_ADD_ARCH" ;
@@ -46,6 +50,7 @@ install:
 - if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get update; fi
 - if [ -n "$PACKAGES" ]; then travis_retry sudo apt-get install --no-install-recommends
   --no-upgrade -qq $PACKAGES; fi
+
 before_script:
 - if [ "$CHECK_DOC" = 1 ]; then contrib/devtools/check-doc.py; fi
 - if [ "$CHECK_LOGPRINT" = 1 ]; then contrib/devtools/logprint-scanner.py; fi
