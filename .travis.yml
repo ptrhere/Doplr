@@ -40,7 +40,7 @@ before_install:
     - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
     - sudo add-apt-repository ppa:tobydox/mingw-x-trusty -y
     - sudo apt-get update -q
-    - sudo apt-get install openssl zlib qt5base -y
+    - sudo apt-get install mingw64-x-openssl mingw64-x-zlib ming264-x-qt5base -y
 install:
     - if [ "$PYZMQ" = "true" ]; then pip install pyzmq --user ; fi
     - if [ -n "$DPKG_ADD_ARCH" ]; then sudo dpkg --add-architecture "$DPKG_ADD_ARCH" ; fi
