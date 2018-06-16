@@ -37,10 +37,10 @@ env:
 #    - HOST=x86_64-apple-darwin11 PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev" BITCOIN_CONFIG="--enable-gui --enable-reduce-exports" OSX_SDK=10.11 GOAL="deploy"
 
 before_install:
-  - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
-  - sudo add-apt-repository ppa:tobydox/mingw-x-trusty -y
-  - sudo apt-get update -q
-  - sudo apt-get install openssl zlib qt5base -y
+    - export PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
+    - sudo add-apt-repository ppa:tobydox/mingw-x-trusty -y
+    - sudo apt-get update -q
+    - sudo apt-get install openssl zlib qt5base -y
 install:
     - if [ "$PYZMQ" = "true" ]; then pip install pyzmq --user ; fi
     - if [ -n "$DPKG_ADD_ARCH" ]; then sudo dpkg --add-architecture "$DPKG_ADD_ARCH" ; fi
